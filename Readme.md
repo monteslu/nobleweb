@@ -29,6 +29,6 @@ Then view the app:
 [http://localhost:3000](http://localhost:3000)
 
 
-There's not much to the UI except for a button, look in the dev tools console to see some output.  Or add a UI and make a PR back to this repo :)
+There's not much to the UI except for a button and some simple output messages of the raw data or errors.
 
 
