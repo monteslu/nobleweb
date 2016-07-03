@@ -1,7 +1,6 @@
 'use strict';
 
 var path = require('path');
-var webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -14,11 +13,6 @@ module.exports = {
   resolveLoader: {
     root: path.join(__dirname, 'node_modules')
   },
-  plugins: [
-    new webpack.IgnorePlugin(/^fs$/),
-    new webpack.IgnorePlugin(/^tls$/),
-    new webpack.IgnorePlugin(/^README\.md$/)
-  ],
   module: {
     loaders: [
       {
@@ -26,17 +20,6 @@ module.exports = {
         loader: "json"
       }
     ]
-  },
-  resolve: {
-    // this is a workaround for aliasing a top level dependency
-    // inside a symlinked subdependency
-    root: path.join(__dirname, 'node_modules'),
-    alias: {
-      // replacing `fs` with a browser-compatible version
-      // net: 'chrome-net',
-      // fs: 'level-fs-browser',
-      // serialport: 'browser-serialport',
-    }
   },
   bail: false
 };
