@@ -53,11 +53,6 @@ noble.on('discover', function(peripheral){
         serviceLabelDiv.textContent = 'service: ' + service.uuid;
         serviceDiv.appendChild(serviceLabelDiv);
 
-  //
-  //       <div class="mdl-card__title mdl-card--expand">
-  //   <h2 class="mdl-card__title-text">Update</h2>
-  // </div>
-
         var charsDiv = document.createElement('div')
         charsDiv.id = service.uuid + 'chars';
         serviceDiv.appendChild(charsDiv);
@@ -117,9 +112,10 @@ noble.on('discover', function(peripheral){
 
               if(prop === 'notify'){
                 var subBtn = document.createElement('button');
-                subBtn.textContent = 'Subscribe';
-                subBtn.className = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                subBtn.textContent = 'subscribe';
+                subBtn.className = "mybutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                 propControls.appendChild(subBtn);
+                componentHandler.upgradeElement(subBtn);
 
                 subBtn.addEventListener("click", function( event ) {
                   subBtn.disabled = true;
@@ -159,8 +155,9 @@ noble.on('discover', function(peripheral){
               if(prop === 'read'){
                 var readBtn = document.createElement('button');
                 readBtn.textContent = 'read';
-                readBtn.className = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                readBtn.className = "mybutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                 propControls.appendChild(readBtn);
+                componentHandler.upgradeElement(readBtn);
 
                 readBtn.addEventListener("click", function( event ) {
                   console.log('reading data from', characteristic.uuid);
@@ -172,15 +169,30 @@ noble.on('discover', function(peripheral){
 
               if(prop === 'write' || prop === "writeWithoutResponse"){
 
+                var writeWrapper = document.createElement('div');
+                writeWrapper.className = "mdl-textfield mdl-js-textfield mdl-textfield--floating-label";
+                propControls.appendChild(writeWrapper);
+
                 var writeInput = document.createElement('input');
                 writeInput.type = 'text';
+                writeInput.id = service.uuid + characteristic.uuid + prop + 'input';
                 writeInput.className = "mdl-textfield__input";
-                propControls.appendChild(writeInput);
+                writeWrapper.appendChild(writeInput);
+
+                var writeLabel = document.createElement('label');
+                writeLabel.className = "mdl-textfield__label";
+                writeLabel.htmlFor = service.uuid + characteristic.uuid + prop + 'input';
+                writeLabel.textContent = 'bytes';
+                writeWrapper.appendChild(writeLabel);
+
+                componentHandler.upgradeElement(writeWrapper);
+
 
                 var writeBtn = document.createElement('button');
                 writeBtn.textContent = prop;
-                writeBtn.className = "mdl-button mdl-js-button mdl-button--raised mdl-button--colored";
+                writeBtn.className = "mybutton mdl-button mdl-js-button mdl-button--raised mdl-button--colored";
                 propControls.appendChild(writeBtn);
+                componentHandler.upgradeElement(writeBtn);
 
                 writeBtn.addEventListener("click", function( event ) {
                   var raw = _.trim(writeInput.value);
@@ -211,6 +223,7 @@ noble.on('discover', function(peripheral){
         service.discoverCharacteristics();
 
       });
+
 
 
 

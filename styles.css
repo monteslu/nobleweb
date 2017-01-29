@@ -29,3 +29,8 @@
   font-weight: bold;
   color: black;
 }
+
+.mybutton {
+  text-transform: none;
+  margin-left: 8px;
+}
