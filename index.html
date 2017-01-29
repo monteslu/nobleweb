@@ -1,20 +1,4 @@
 <!doctype html>
-<!--
-  Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -26,13 +10,47 @@
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-light_blue.min.css" />
-  </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-light_blue.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="scanBtn" style="margin: 10px;">
-      Start Scanning
-    </button>
+    <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-light_blue.min.css" /> -->
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" style="margin: 10px;">
+
+    <div class="mdl-layout__tab-bar">
+              <h3 style="color: white;">Web Bluetooth with Noble</h3>
+    </div>
+
+    <div class="mdl-card mdl-shadow--2dp roundbox" style="padding: 8px; margin: 20px;">
+      This page use a bundled version of the noble API with WebBluetooth to connect and use Bluetooth Low Energy devices.<br>
+      <a href="https://github.com/sandeepmistry/noble" target="blank">Noble on github</a><br>
+      Data sent and recieved to characteristics is the form of comma separated bytes in values of 0-255
+      <br><br>
+      You can scan services with a comma separated list such as: heart_rate, battery_service, a000
+      <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="serviceInput">
+          <label class="mdl-textfield__label" for="service">service</label>
+
+        <!-- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="deviceName" value="">
+          <label class="mdl-textfield__label" for="deviceName">device name</label>
+        </div> -->
+
+      </div>
+
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="scanBtn" style="margin: 10px;">
+        Scan
+      </button>
+
+    </div>
+
+
+    </form>
+    <div id="services">
+    </div>
     <div id="output"></div>
     <div id="errorOutput" style="color: red;"></div>
     <script src="main.bundle.js"></script>

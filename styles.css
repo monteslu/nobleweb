@@ -1,0 +1,31 @@
+.roundbox {
+  padding: 8px;
+  margin: auto;
+  width: 95%;
+  min-height: inherit;
+  /*border-radius: 5px;*/
+}
+
+.service {
+  margin-bottom: 10px;
+}
+
+.serviceLabel {
+  background-color: rgb(63,81,181);
+  color: white;
+}
+
+.characteristic {
+  margin-bottom: 10px;
+  /*background-color: lightgreen;*/
+}
+
+.property {
+  margin-bottom: 10px;
+  /*background-color: lightgoldenrodyellow;*/
+}
+
+.charValue {
+  font-weight: bold;
+  color: black;
+}

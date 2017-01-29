@@ -4,7 +4,8 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    main: path.join(__dirname, './src/main.js')
+    main: path.join(__dirname, './src/main.js'),
+    nobleglobal: path.join(__dirname, './src/nobleglobal.js'),
   },
   output: {
     filename: '[name].bundle.js',
