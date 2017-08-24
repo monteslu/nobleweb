@@ -1,7 +1,12 @@
 NobleWeb 
 ========
 
-Simple app using noble with webpack to read a heart rate monitor.  You can use the [BLE Peripheral Simulator](https://play.google.com/store/apps/details?id=io.github.webbluetoothcg.bletestperipheral&hl=en) to transmit heart rate data:  
+Simple demo web app to connect to Bluetooth peripherals and read/write characterisic values.
+
+Built using [noble](https://github.com/sandeepmistry/noble)'s Web Bluetooth support
+with webpack.  You can use the 
+[BLE Peripheral Simulator](https://play.google.com/store/apps/details?id=io.github.webbluetoothcg.bletestperipheral&hl=en)
+to transmit heart rate data.
 
 This app is up and running at: [https://nobleweb.surge.sh](https://nobleweb.surge.sh)
 
